@@ -7,7 +7,7 @@ To run the code you need:
 + mac machine (should probably work on linux, too, but I haven't tried)
 + C compiler and make to compile the final solution
 + `checker` binary in the root of the repo for the correctness checks to work
-+ python 3 + plumbum + jupyter to be able to run the notebook with plots
++ python 3 + plumbum + jupyter + matplotlib + tqdm to be able to run the notebook with plots
 
 I used `venv` for my python environment. To reproduce it, run:
 
