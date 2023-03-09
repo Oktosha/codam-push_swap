@@ -2,6 +2,21 @@
 
 This repo contains code for a project at [Codam](https://www.codam.nl/) (School 42 in Amstredam).
 
+To run the code you need:
+
++ mac machine (should probably work on linux, too, but I haven't tried)
++ C compiler and make to compile the final solution
++ `checker` binary in the root of the repo for the correctness checks to work
++ python 3 + plumbum + jupyter to be able to run the notebook with plots
+
+I used `venv` for my python environment. To reproduce it, run:
+
+```bash
+python3 -m venv push_swap-env
+source push_swap-env/bin/activate
+pip install -r requirements.txt
+```
+
 ## Task subject (briefly)
 
 The goal of this project is to write an algo that produces steps to sort a sequence of numbers (numbers fit integer type and don't repeat). The given numbers are stored in a "stack" and you have another such "stack" at your disposal. The allowed operations are:
