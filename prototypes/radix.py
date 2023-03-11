@@ -1,5 +1,4 @@
 from collections import deque
-from itertools import permutations
 
 def simplify(data: list[int]) -> list[int]:
     indexed = list(enumerate(data))
