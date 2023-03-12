@@ -43,7 +43,7 @@ The resulting binary will be called like this
 ARG="2 1 3 6 5 8"; ./push_swap $ARG
 ```
 
-It means that there are 6 numbers in stack a, number 2 is on top. Possible output is 
+It means that there are 6 numbers in stack a, number 2 is on top. Possible output is
 
 ```
 sa
@@ -83,6 +83,54 @@ These requirements really force you to apply a lot of non-asymptotic optimizatio
 These requirements don't empathize the value of being asymptotically good.
 
 You can be reasonably inefficient generating steps as long as you don't generate that many steps.
+
+The amount of steps can't be lower than $Nlog_{k}N$ asymptotically, where $N$ is the length of the input sequence and $k = 11$ is the number of available operations each step.
+
+<details>
+  <summary>Proof for the solution length lower bound (click to expand)</summary>
+
+</br>
+
+For two different input sequences of the same length the answers should be different.
+
+Number of possible input sequences with length $N$ is $N!$
+
+Number of possible sorting sequences no longer then $w$ is $k^0 + k^1 + k^2 + ... + k^w$.
+
+So we can get a lower bound for $w$ from:
+
+$k^0 + k^1 + k^2 + ... + k^w \ge N!$
+
+Given the lower bound for factorial:
+
+$N! \ge \left(\frac{n}{e}\right)^n$
+
+And given that $k = 11$ i. e. $k > 2$
+
+$2 \cdot k ^ w \ge k^0 + k^1 + k^2 + ... + k^w$
+
+it means
+
+$2 \cdot k ^ w \ge \left(\frac{n}{e}\right)^n$
+
+let's take logarithm from both sides
+
+$ln(2) + w \cdot ln(k) \ge n(ln(n) - ln(e))$
+
+more transformations
+
+$w \cdot ln(k) \ge n \cdot ln(n) - n - ln(2)$
+
+$w \ge n \cdot \frac{ln(n)}{ln(k)} - \frac{n - ln(2)}{ln(k)}$
+
+$w \ge n \cdot ln_k(n) - \frac{n - ln(2)}{ln(k)}$
+
+$w \ge n \cdot ln_k(n) - O(n)$
+
+The idea of the proof was taken from [here](https://doi.org/10.1016/j.dam.2010.06.007)
+
+</details>
+
 
 ## Efficiency experiments
 
@@ -128,4 +176,3 @@ Instructions to install python environment
 ## [TODO] Other resources
 
 [todo] links to visualizations
-
